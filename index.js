@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Assistant</title>
+  <title>Sakshi</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
     h1 { color: #333; }
@@ -81,18 +81,18 @@ app.get("/", (req, res) => {
 <body>
 
   <h1>Welcome to My Website 🤖</h1>
-  <p>Click the chat button to talk to our AI Assistant!</p>
+  <p>Click the chat button to talk to our Sakshi Assistant!</p>
 
   <button id="chat-toggle" onclick="toggleChat()">💬 Chat</button>
 
   <div id="chat-box">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-      <h3 style="margin:0;">💬 AI Assistant</h3>
+      <h3 style="margin:0;">💬 Sakshi Assistant</h3>
       <span onclick="toggleChat()" style="cursor:pointer; font-size:18px;">✖</span>
     </div>
     <br/>
     <div id="messages">
-      <div class="ai-msg">AI: Hello! How can I help you today? 😊</div>
+      <div class="ai-msg">Sakshi: Hello! How can I help you today? 😊</div>
     </div>
     <input type="text" id="chat-input" placeholder="Type your message..." />
     <button id="chat-send" onclick="sendMessage()">Send</button>
@@ -119,7 +119,7 @@ app.get("/", (req, res) => {
 
       messages.innerHTML += '<div class="user-msg">You: ' + userMessage + '</div>';
       input.value = "";
-      messages.innerHTML += '<div class="ai-msg" id="typing">AI: typing...</div>';
+      messages.innerHTML += '<div class="ai-msg" id="typing">Sakshi: typing...</div>';
       messages.scrollTop = messages.scrollHeight;
 
       try {
@@ -131,10 +131,10 @@ app.get("/", (req, res) => {
 
         const data = await res.json();
         document.getElementById("typing").remove();
-        messages.innerHTML += '<div class="ai-msg">AI: ' + data.reply + '</div>';
+        messages.innerHTML += '<div class="ai-msg">Sakshi: ' + data.reply + '</div>';
       } catch (error) {
         document.getElementById("typing").remove();
-        messages.innerHTML += '<div class="ai-msg">AI: Sorry, something went wrong!</div>';
+        messages.innerHTML += '<div class="ai-msg">Sakshi: Sorry, something went wrong!</div>';
       }
 
       messages.scrollTop = messages.scrollHeight;
@@ -377,10 +377,7 @@ USAGE NOTES FOR AI AGENTS (RAG)
 • Store in a vector DB with metadata: product_name, category, doc_title, doc_type.
 • Retrieve with hybrid search (filters + semantic similarity, top_k≈5) and re-rank.
 • Ground answers with exact dosages/specs and mention related standards where applicable.
-• For safety/storage/compliance questions, search the TDS first before generalizing.
-
-        
-        ",
+• For safety/storage/compliance questions, search the TDS first before generalizing. ",
       messages: [{ role: "user", content: userMessage }],
     });
 
@@ -395,4 +392,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("AI Agent running on port " + PORT);
 });
+
 
